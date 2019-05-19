@@ -4,7 +4,17 @@ import random
 
 class neuronio:
 
-    def __init__(self, amostras, saidas, taxa_aprendizado = 0.1, epocas = 1000, limiar = -1):
+    def __init__(self, entradas, pesos, saida, limiar):
+
+
+    def forward(self):
+
+    def backward(self):
+
+
+class Perceptron:
+
+    def __init__(self, amostras, saidas, pesos, taxa_aprendizado = 0.1, epocas = 1000, limiar = -1):
         self.amostras = amostras
         self.saidas = saidas
         self.taxa_aprendizado = taxa_aprendizado
@@ -12,15 +22,17 @@ class neuronio:
         self.limiar = limiar
         self.n_amostras = len(amostras)
         self.n_atributos = len (amostras[0])
-        self.pesos = []
+        self.pesos = pesos
 
     def treinar(self):
 
         for amostra in self.amostras:
             amostra.insert(0, -1)
 
+        '''
         for i in range(self.n_atributos):
             self.pesos.append(random.random())
+        '''
 
         self.pesos.insert(0, self.limiar)
         n_epocas = 0 # contador de épocas
