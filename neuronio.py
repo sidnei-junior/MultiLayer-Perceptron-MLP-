@@ -4,10 +4,26 @@ import random
 
 class neuronio:
 
-    def __init__(self, entradas, pesos, saida, limiar):
+    def __init__(self, entradas, pesos, limiar, saidas):
+        self.entradas = entradas
+        self.pesos = pesos
+        self.saida = saida
+        self.limiar = limiar
+        self.n_atributos = len (entradas)
 
 
     def forward(self):
+        self.entradas.insert(0, -1)
+        self.pesos.insert(0, self.limiar)
+
+        for i in range(self.n_atributos + 1):
+            u += self.pesos[i] * self.entradas[i]
+        return self.sinal(u)
+    
+    def sinal (self, u):
+        if u >= 0:
+            return 1
+        return -1
 
     def backward(self):
 
